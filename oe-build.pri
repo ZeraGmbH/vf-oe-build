@@ -3,29 +3,11 @@ QMAKE_CXXFLAGS += -std=c++0x
 
 isEmpty( VF_NO_DEPLOY ) {
   unix:equals(TEMPLATE, "lib") {
-    DESTDIR = $$PWD/libs
     VERSION = 0.0.1
 
     header_files.files = $$HEADERS
     header_files.path = /usr/include/
     INSTALLS += header_files
-  }
-
-  android:equals(TEMPLATE, "lib") {
-    DESTDIR = $$PWD/libs-android
-    VERSION = 0.0.1
-  }
-
-  unix:equals(TEMPLATE, "staticlib") {
-    DESTDIR = $$PWD/libs
-  }
-
-  android:equals(TEMPLATE, "staticlib") {
-    DESTDIR = $$PWD/libs-android
-  }
-
-  unix:equals(TEMPLATE, "app") {
-    DESTDIR = $$PWD/bin
   }
 }
 
