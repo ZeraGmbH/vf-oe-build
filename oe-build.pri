@@ -1,15 +1,16 @@
 #enable c++11
-QMAKE_CXXFLAGS += -std=c++0x
+CONFIG += c++11
 
 isEmpty( VF_NO_DEPLOY ) {
   unix:equals(TEMPLATE, "lib") {
     VERSION = 0.0.1
-
-    header_files.files = $$HEADERS
-    header_files.path = /usr/include/
-    INSTALLS += header_files
+  isEmpty( VF_NO_DEPLOY_HEADERS ) {
+    public_headers.path = /usr/include
+    INSTALLS += public_headers
+  }
   }
 }
+
 
 # this will allow colored debug output
 DEFINES += VEIN_COLORS_SUPPORT
@@ -40,8 +41,16 @@ defined(VEIN_DEP_TCP, var) {
   LIBS += -lxiqnet
 }
 
+defined(VEIN_DEP_TCP2, var) {
+  LIBS += -lvein-tcp
+}
+
 defined(VEIN_DEP_NET, var) {
   LIBS += -lvein-net
+}
+
+defined(VEIN_DEP_NET2, var) {
+  LIBS += -lvein-net2
 }
 
 defined(VEIN_DEP_HELPER, var) {
