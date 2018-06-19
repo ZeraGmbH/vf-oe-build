@@ -13,7 +13,7 @@ isEmpty( VF_NO_DEPLOY ) {
 
 
 # this will allow colored debug output
-DEFINES += VEIN_COLORS_SUPPORT
+#DEFINES += VEIN_COLORS_SUPPORT
 
 
 #dependency tracking without config code duplication
