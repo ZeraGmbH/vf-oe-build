@@ -70,3 +70,7 @@ defined(VEIN_DEP_LOGGER, var) {
   LIBS += -lvein-logger
 }
 
+defined(VEIN_DEP_CRYPTOBRIDGE, var) {
+  LIBS += -lvf-crypto-bridge
+}
+
